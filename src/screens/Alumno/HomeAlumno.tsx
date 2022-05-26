@@ -1,7 +1,8 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useContext, useEffect } from 'react'
 import { contexto } from '../../utils/AppContext'
 import { EstilosGlobales } from '../../styles/Estilos'
+import { _url } from '../../global/variables'
 
 const HomeAlumno = () => {
   const context = useContext(contexto)
@@ -10,6 +11,7 @@ const HomeAlumno = () => {
     <View>
       <Text>Nombre: {context.user.datos?.nombre}</Text>
       <Text>Nombre: {context.user.rol}</Text>
+      <Image style={{ alignSelf: 'center', height: 200, width: 200 }} source={{ uri: `${_url}imagenes/${context.user.datos?.imagen}` }} />
       <Pressable onPress={() => context.logout({
         correo: "",
         contrasenia: "",

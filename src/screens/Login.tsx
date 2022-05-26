@@ -3,7 +3,7 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { IUser } from '../models/IUser';
-import { EstilosGlobales } from '../styles/Estilos';
+import { EstilosGlobales, EstilosLogin } from '../styles/Estilos';
 import { contexto } from '../utils/AppContext';
 import axios from 'axios';
 import { _url } from '../global/variables';
@@ -11,9 +11,12 @@ import { ButtonGroup } from '@rneui/themed'
 import { IAlumno } from '../models/IAlumno';
 import { IMaestro } from '../models/IMaestro';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StackScreenProps } from '@react-navigation/stack';
+import { RootStackParamList } from '../utils/RootStackParam';
 
+type Props = StackScreenProps<RootStackParamList, "Login">;
 
-const Login = () => {
+const Login = ({ route, navigation }: Props) => {
 
   const [rol, setRol] = useState(0)
 
@@ -66,7 +69,7 @@ const Login = () => {
 
 
   return (
-    <View>
+    <View style={EstilosLogin.fondo}>
       <Formik
         initialValues={userInicial}
         onSubmit={async user => login(user)}
@@ -110,6 +113,9 @@ const Login = () => {
           </Fragment>
         )}
       </Formik>
+      <Pressable onPress={() => {navigation.navigate("RegistroAlumno")}} style={EstilosGlobales.boton}>
+        <Text style={EstilosGlobales.textoBoton}>Registro</Text>
+      </Pressable>
     </View>
   )
 }

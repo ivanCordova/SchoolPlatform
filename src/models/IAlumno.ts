@@ -1,8 +1,8 @@
 export interface IAlumno{
-    id: number,
+    id?: number,
     nombre: string,
     fecha_nacimiento: Date,
-    imagen: string,
+    imagen?: string,
     correo: string,
     id_grupo: number,
     contrasenia: string

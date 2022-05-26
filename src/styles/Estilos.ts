@@ -45,3 +45,11 @@ export const EstilosGlobales = StyleSheet.create({
         alignSelf: 'center'
     }
 })
+
+export const EstilosLogin = StyleSheet.create({
+    fondo: {
+        backgroundColor: "#025928",
+        width: "100%",
+        height: "100%"
+    }
+})
