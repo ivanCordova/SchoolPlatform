@@ -59,7 +59,11 @@ const Login = ({ route, navigation }: Props) => {
         user.datos = response.data as IMaestro
         context.login(user)
       }).catch((error) => {
-        console.log(error.response)
+        if (error.response.status == 404) {
+          Alert.alert("Error", "Usuario o contraseña invalidos")
+        } else {
+          Alert.alert("Error", "Error en el servidor")
+        }
       }))
   }
 
@@ -116,7 +120,7 @@ const Login = ({ route, navigation }: Props) => {
               containerStyle={{ borderRadius: 10, height: 50 }}
             />
 
-            <Pressable onPress={handleSubmit} style={[EstilosGlobales.boton, { width: "80%", marginTop: 30, marginBottom: 15, alignSelf: "center" }]}>
+            <Pressable onPress={handleSubmit} style={[EstilosGlobales.boton]}>
               <Text style={EstilosGlobales.textoBoton}>Entrar</Text>
             </Pressable>
           </Fragment>

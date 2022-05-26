@@ -21,7 +21,6 @@ export const EstilosGlobales = StyleSheet.create({
         alignContent: 'center'
     },
     boton: {
-        width: 100,
         height: 50,
         borderRadius: 10,
         backgroundColor: '#03A64A',
@@ -29,7 +28,8 @@ export const EstilosGlobales = StyleSheet.create({
         borderWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal: 2
+        marginHorizontal: 2,
+        width: "80%", marginTop: 30, marginBottom: 15, alignSelf: "center"
     },
     textoBoton: {
         fontSize: 25,
@@ -73,6 +73,21 @@ export const EstilosLogin = StyleSheet.create({
         alignSelf: "center",
         marginVertical: 80,
         color: "white",
-        textAlign:"center"
+        textAlign: "center"
+    }
+})
+
+export const EstilosRegistro = StyleSheet.create({
+    fondo: {
+        backgroundColor: "#025928",
+        width: "100%",
+        height: "100%",
+        borderColor: "white",
+        borderWidth: 2,
+        borderRadius: 15
+    },
+    selectorGrupo: {
+        borderColor: "white",
+        color: "white"
     }
 })

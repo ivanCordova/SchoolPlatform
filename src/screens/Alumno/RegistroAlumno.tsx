@@ -3,7 +3,7 @@ import React, { Fragment, useContext, useEffect, useState } from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { IUser } from '../../models/IUser';
-import { EstilosGlobales } from '../../styles/Estilos';
+import { EstilosGlobales, EstilosRegistro } from '../../styles/Estilos';
 import { contexto } from '../../utils/AppContext';
 import axios from 'axios';
 import { _url } from '../../global/variables';
@@ -15,6 +15,10 @@ import { CameraOptions, ImageLibraryOptions, ImagePickerResponse, launchCamera, 
 import { ScrollView } from 'react-native-gesture-handler';
 import RNPickerSelect, { Item } from 'react-native-picker-select';
 import { IGrupo } from '../../models/IGrupo';
+import { Avatar } from "@rneui/themed";
+import AvatarComponent from '../../components/AvatarComponent';
+import { color } from '@rneui/base';
+
 
 type Props = StackScreenProps<RootStackParamList, "Login">;
 interface item {
@@ -28,7 +32,7 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
   const [date, setDate] = useState(new Date())
 
   const context = useContext(contexto)
-  const [imagen, setImagen] = useState<string>("https://via.placeholder.com/200")
+  const [imagen, setImagen] = useState<string>(`${_url}imagenes/default.png`)
   const [uploading, setUploading] = useState<boolean>(false)
   const [itemGrupo, setItemGrupo] = useState<item[]>([])
 
@@ -124,9 +128,8 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
 
 
 
-
   return (
-    <View>
+    <View style={EstilosRegistro.fondo}>
       <ScrollView>
         <Formik
           initialValues={alumnoInicial}
@@ -134,7 +137,8 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
           validationSchema={validaciones}>
           {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (
             <Fragment>
-              <Text>Nombre</Text>
+              <AvatarComponent imagen={imagen} folder={() => selectImage()} camara={() => takePhoto()}></AvatarComponent>
+              <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Nombre</Text>
               <TextInput style={EstilosGlobales.textinput}
                 onChangeText={handleChange('nombre')}
                 onBlur={() => setFieldTouched('nombre')}
@@ -144,9 +148,23 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
               {touched.nombre && errors.nombre &&
                 <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.nombre}</Text>
               }
-              <Text>Fecha de nacimiento</Text>
-              <DatePicker fadeToColor='none' style={{ alignSelf: "center", marginVertical: 10 }} timeZoneOffsetInMinutes={60} mode='date' date={date} onDateChange={setDate} />
-              <Text>Correo</Text>
+
+
+              <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Grupo</Text>
+
+
+              <View style={EstilosGlobales.textinput}>
+
+                <RNPickerSelect
+                  onValueChange={(value) => values.id_grupo = value}
+                  items={itemGrupo}
+                  placeholder={{}}
+                />
+              </View>
+
+              <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Fecha de nacimiento</Text>
+              <DatePicker textColor='white' fadeToColor='none' style={{ alignSelf: "center", marginVertical: 10 }} timeZoneOffsetInMinutes={60} mode='date' date={date} onDateChange={setDate} />
+              <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Correo</Text>
               <TextInput style={EstilosGlobales.textinput}
                 onChangeText={handleChange('correo')}
                 onBlur={() => setFieldTouched('correo')}
@@ -157,16 +175,8 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
                 <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.correo}</Text>
               }
 
-              <Text>Grupo</Text>
 
-
-              <RNPickerSelect
-                onValueChange={(value) => values.id_grupo = value}
-                items={itemGrupo}
-                placeholder={{}}
-              />
-
-              <Text>Contraseña</Text>
+              <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Contraseña</Text>
               <TextInput style={EstilosGlobales.textinput}
                 onChangeText={handleChange('contrasenia')}
                 onBlur={() => setFieldTouched('contrasenia')}
@@ -176,12 +186,12 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
               {touched.contrasenia && errors.contrasenia &&
                 <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.contrasenia}</Text>
               }
-              <Button title='Seleccionar una imagen' onPress={selectImage}></Button>
+              {/*               <Button title='Seleccionar una imagen' onPress={selectImage}></Button>
               <View style={{ marginVertical: 20 }}></View>
               <Button title='Tomar una foto' onPress={takePhoto}></Button>
               <View style={{ marginVertical: 20 }}></View>
               <Image style={{ alignSelf: 'center', height: 200, width: 200 }} source={{ uri: imagen }} />
-              <View style={{ marginVertical: 20 }}></View>
+              <View style={{ marginVertical: 20 }}></View> */}
 
               <Pressable onPress={handleSubmit} style={EstilosGlobales.boton}>
                 <Text style={EstilosGlobales.textoBoton}>Registrar</Text>
