@@ -129,7 +129,7 @@ const RegistroAlumno = ({ route, navigation }: Props) => {
 
 
   return (
-    <View style={EstilosRegistro.fondo}>
+    <View style={EstilosGlobales.fondo}>
       <ScrollView>
         <Formik
           initialValues={alumnoInicial}

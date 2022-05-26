@@ -1,8 +1,8 @@
 export interface IMaestro{
-    id: number,
+    id?: number,
     nombre: string,
     fecha_nacimiento: Date,
-    imagen: string,
+    imagen?: string,
     correo: string,
     contrasenia: string
 }

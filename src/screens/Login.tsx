@@ -77,7 +77,7 @@ const Login = ({ route, navigation }: Props) => {
 
 
   return (
-    <View style={EstilosLogin.fondo}>
+    <View style={EstilosGlobales.fondo}>
       <Formik
         initialValues={userInicial}
         onSubmit={async user => login(user)}
@@ -126,7 +126,7 @@ const Login = ({ route, navigation }: Props) => {
           </Fragment>
         )}
       </Formik>
-      <Text onPress={() => { navigation.navigate("RegistroAlumno") }} style={[EstilosGlobales.textoDescrip, { fontSize: 20, alignSelf: "center" }]}>¿Aún no tienes cuenta?, ¡Regístrate!</Text>
+      <Text onPress={() => { navigation.navigate("TipoRegistro") }} style={[EstilosGlobales.textoDescrip, { fontSize: 20, alignSelf: "center" }]}>¿Aún no tienes cuenta?, ¡Regístrate!</Text>
     </View>
   )
 }

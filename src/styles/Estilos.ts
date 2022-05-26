@@ -1,5 +1,13 @@
 import { StyleSheet } from 'react-native'
 export const EstilosGlobales = StyleSheet.create({
+    fondo: {
+        backgroundColor: "#025928",
+        width: "100%",
+        height: "100%",
+        borderColor: "white",
+        borderWidth: 2,
+        borderRadius: 15
+    },
     contenedor: {
         flex: 1
     },
@@ -12,6 +20,18 @@ export const EstilosGlobales = StyleSheet.create({
         paddingLeft: 20,
         fontSize: 20,
         backgroundColor: '#037014',
+        fontFamily: "Schoolbell-Regular",
+        color: "white"
+    },
+    textinputError: {
+        marginVertical: 15,
+        borderWidth: 2,
+        borderColor: 'white',
+        marginHorizontal: 15,
+        borderRadius: 15,
+        paddingLeft: 20,
+        fontSize: 20,
+        backgroundColor: 'red',
         fontFamily: "Schoolbell-Regular",
         color: "white"
     },
@@ -59,14 +79,6 @@ export const EstilosGlobales = StyleSheet.create({
 })
 
 export const EstilosLogin = StyleSheet.create({
-    fondo: {
-        backgroundColor: "#025928",
-        width: "100%",
-        height: "100%",
-        borderColor: "white",
-        borderWidth: 2,
-        borderRadius: 15
-    },
     titulo: {
         fontSize: 80,
         fontFamily: "Schoolbell-Regular",
@@ -78,16 +90,38 @@ export const EstilosLogin = StyleSheet.create({
 })
 
 export const EstilosRegistro = StyleSheet.create({
-    fondo: {
-        backgroundColor: "#025928",
-        width: "100%",
-        height: "100%",
-        borderColor: "white",
-        borderWidth: 2,
-        borderRadius: 15
-    },
     selectorGrupo: {
         borderColor: "white",
         color: "white"
+    }
+})
+
+export const EstilosTipo = StyleSheet.create({
+    titulo:{
+        fontSize: 40,
+        fontFamily: "Schoolbell-Regular",
+        alignSelf: "center",
+        marginVertical: 30,
+        color: "white",
+        textAlign: "center"
+    },
+    textoTipo:{
+        fontSize: 50,
+        fontFamily: "Schoolbell-Regular",
+        alignSelf: "center",
+        marginVertical: 30,
+        color: "white",
+        textAlign: "center"
+    },
+    boton: {
+        height: "25%",
+        borderRadius: 10,
+        backgroundColor: '#03A64A',
+        borderColor: '#01401C',
+        borderWidth: 2,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginHorizontal: 2,
+        width: "80%", marginTop: 30, marginBottom: 15, alignSelf: "center"
     }
 })

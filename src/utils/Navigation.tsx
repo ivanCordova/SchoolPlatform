@@ -11,6 +11,9 @@ import { contexto } from './AppContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { IUser } from '../models/IUser';
 import RegistroAlumno from '../screens/Alumno/RegistroAlumno';
+import TipoRegistro from '../screens/TipoRegistro';
+import RegistroMaestro from '../screens/Maestro/RegistroMaestro';
+import { Tab } from '@rneui/base';
 
 const Navigation = () => {
     const Stack = createStackNavigator<RootStackParamList>();
@@ -56,12 +59,22 @@ const Navigation = () => {
                                 headerShown: false
                             }}
                         ></Stack.Screen>
+                        <Stack.Screen name='TipoRegistro' component={TipoRegistro}
+                            options={{
+                                headerShown: false
+                            }}
+                        ></Stack.Screen>
+                        <Stack.Screen name='RegistroMaestro' component={RegistroMaestro}
+                            options={{
+                                headerShown: false
+                            }}
+                        ></Stack.Screen>
                     </Fragment>
                 ) : (
                     // User is signed in
                     (
                         context.user.rol === "alumno" ? (
-                            <Stack.Screen name="HomeAlumno" component={HomeAlumno} />
+                             <Stack.Screen name="HomeAlumno" component={HomeAlumno} />
                         ) : (
                             <Stack.Screen name="HomeMaestro" component={HomeMaestro} />
 
@@ -72,14 +85,6 @@ const Navigation = () => {
         </NavigationContainer>
     );
 
-    /*     return (
-            <NavigationContainer>
-                <Stack.Navigator initialRouteName='Principal'>
-                    <Stack.Screen name='Login' component={Login}></Stack.Screen>
-                    <Stack.Screen name='Principal' component={Principal}></Stack.Screen>
-                </Stack.Navigator>
-            </NavigationContainer>
-        ) */
 }
 
 export default Navigation
