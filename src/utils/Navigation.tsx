@@ -13,7 +13,9 @@ import { IUser } from '../models/IUser';
 import RegistroAlumno from '../screens/Alumno/RegistroAlumno';
 import TipoRegistro from '../screens/TipoRegistro';
 import RegistroMaestro from '../screens/Maestro/RegistroMaestro';
-import { Tab } from '@rneui/base';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
     const Stack = createStackNavigator<RootStackParamList>();
@@ -77,7 +79,7 @@ const Navigation = () => {
                              <Stack.Screen name="HomeAlumno" component={HomeAlumno} />
                         ) : (
                             <Stack.Screen name="HomeMaestro" component={HomeMaestro} />
-
+    
                         )
                     )
                 )}
