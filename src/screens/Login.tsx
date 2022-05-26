@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Alert, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { Fragment, useContext, useEffect, useState } from 'react'
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -41,7 +41,11 @@ const Login = ({ route, navigation }: Props) => {
         user.datos = response.data as IAlumno
         context.login(user)
       }).catch((error) => {
-        console.log("Error_ " + error);
+        if (error.response.status == 404) {
+          Alert.alert("Error", "Usuario o contraseña invalidos")
+        } else {
+          Alert.alert("Error", "Error en el servidor")
+        }
       }))
       :
       (axios.post(`${_url}login?tp=maestro`, {
@@ -55,7 +59,7 @@ const Login = ({ route, navigation }: Props) => {
         user.datos = response.data as IMaestro
         context.login(user)
       }).catch((error) => {
-        console.log("Error_ " + error);
+        console.log(error.response)
       }))
   }
 
@@ -76,7 +80,8 @@ const Login = ({ route, navigation }: Props) => {
         validationSchema={validaciones}>
         {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (
           <Fragment>
-            <Text>Correo</Text>
+            <Text style={EstilosLogin.titulo}>School Platform</Text>
+            <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Correo</Text>
             <TextInput style={EstilosGlobales.textinput}
               onChangeText={handleChange('correo')}
               onBlur={() => setFieldTouched('correo')}
@@ -87,11 +92,12 @@ const Login = ({ route, navigation }: Props) => {
               <Text style={{ fontSize: 12, color: '#FF0D10' }}>{errors.correo}</Text>
             }
 
-            <Text>Contraseña</Text>
+            <Text style={[EstilosGlobales.textoDescrip, { marginLeft: 20 }]}>Contraseña</Text>
             <TextInput style={EstilosGlobales.textinput}
               onChangeText={handleChange('contrasenia')}
               onBlur={() => setFieldTouched('contrasenia')}
               placeholder="Contraseñia"
+              secureTextEntry={true}
             >
             </TextInput>
             {touched.contrasenia && errors.contrasenia &&
@@ -104,18 +110,19 @@ const Login = ({ route, navigation }: Props) => {
               onPress={(value) => {
                 setRol(value)
               }}
-              containerStyle={{ marginBottom: 20 }}
+              buttonContainerStyle={{ backgroundColor: "#025928" }}
+              textStyle={{ fontFamily: "Schoolbell-Regular", fontSize: 20, color: "white" }}
+              selectedButtonStyle={{ backgroundColor: "#03A64A" }}
+              containerStyle={{ borderRadius: 10, height: 50 }}
             />
 
-            <Pressable onPress={handleSubmit} style={EstilosGlobales.boton}>
-              <Text style={EstilosGlobales.textoBoton}>Agregar</Text>
+            <Pressable onPress={handleSubmit} style={[EstilosGlobales.boton, { width: "80%", marginTop: 30, marginBottom: 15, alignSelf: "center" }]}>
+              <Text style={EstilosGlobales.textoBoton}>Entrar</Text>
             </Pressable>
           </Fragment>
         )}
       </Formik>
-      <Pressable onPress={() => {navigation.navigate("RegistroAlumno")}} style={EstilosGlobales.boton}>
-        <Text style={EstilosGlobales.textoBoton}>Registro</Text>
-      </Pressable>
+      <Text onPress={() => { navigation.navigate("RegistroAlumno") }} style={[EstilosGlobales.textoDescrip, { fontSize: 20, alignSelf: "center" }]}>¿Aún no tienes cuenta?, ¡Regístrate!</Text>
     </View>
   )
 }

@@ -6,12 +6,14 @@ export const EstilosGlobales = StyleSheet.create({
     textinput: {
         marginVertical: 15,
         borderWidth: 2,
-        borderColor: 'black',
+        borderColor: 'white',
         marginHorizontal: 15,
         borderRadius: 15,
         paddingLeft: 20,
-        fontSize: 15,
-        backgroundColor: 'white'
+        fontSize: 20,
+        backgroundColor: '#037014',
+        fontFamily: "Schoolbell-Regular",
+        color: "white"
     },
     contenedorBotones: {
         flexDirection: 'row',
@@ -22,17 +24,17 @@ export const EstilosGlobales = StyleSheet.create({
         width: 100,
         height: 50,
         borderRadius: 10,
-        backgroundColor: '#D83F1E',
-        borderColor: 'black',
+        backgroundColor: '#03A64A',
+        borderColor: '#01401C',
         borderWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 2
     },
     textoBoton: {
-        fontSize: 15,
+        fontSize: 25,
         color: 'white',
-        fontWeight: 'bold'
+        fontFamily: "Schoolbell-Regular"
     },
     actionButtonIcon: {
         fontSize: 20,
@@ -43,6 +45,16 @@ export const EstilosGlobales = StyleSheet.create({
         width: '90%',
         borderBottomWidth: 1,
         alignSelf: 'center'
+    },
+    textoDescrip: {
+        fontSize: 30,
+        fontFamily: "Schoolbell-Regular",
+        color: "white"
+    },
+    selectRol: {
+        backgroundColor: "#025928",
+        marginBottom: 20,
+        fontFamily: "Schoolbell-Regular"
     }
 })
 
@@ -50,6 +62,17 @@ export const EstilosLogin = StyleSheet.create({
     fondo: {
         backgroundColor: "#025928",
         width: "100%",
-        height: "100%"
+        height: "100%",
+        borderColor: "white",
+        borderWidth: 2,
+        borderRadius: 15
+    },
+    titulo: {
+        fontSize: 80,
+        fontFamily: "Schoolbell-Regular",
+        alignSelf: "center",
+        marginVertical: 80,
+        color: "white",
+        textAlign:"center"
     }
 })

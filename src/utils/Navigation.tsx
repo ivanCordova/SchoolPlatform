@@ -41,12 +41,15 @@ const Navigation = () => {
                         <Stack.Screen
                             name="Login"
                             component={Login}
-                            options={{
+                                options={{
+                                    headerShown: false
+                                }}
+/*                             options={{
                                 title: 'Login',
                                 // When logging out, a pop animation feels intuitive
                                 // You can remove this if you want the default 'push' animation
                                 animationTypeForReplace: _isSignedIn ? 'pop' : 'push',
-                            }}
+                            }} */
                         />
                         <Stack.Screen name='RegistroAlumno' component={RegistroAlumno} options={{
                             title: 'RegistroAlumno',
