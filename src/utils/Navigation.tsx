@@ -14,6 +14,8 @@ import RegistroAlumno from '../screens/Alumno/RegistroAlumno';
 import TipoRegistro from '../screens/TipoRegistro';
 import RegistroMaestro from '../screens/Maestro/RegistroMaestro';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import TareasAlumno from '../screens/Alumno/TareasAlumno';
+import TabNavigation from './TabNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,6 +38,8 @@ const Navigation = () => {
     useEffect(() => {
         getData()
     }, [])
+
+    
 
     return (
         <NavigationContainer>
@@ -76,7 +80,11 @@ const Navigation = () => {
                     // User is signed in
                     (
                         context.user.rol === "alumno" ? (
-                             <Stack.Screen name="HomeAlumno" component={HomeAlumno} />
+                            <Stack.Screen 
+                            options={{
+                                headerShown: false
+                            }}
+                            name='TabNavigation' component={TabNavigation}></Stack.Screen>
                         ) : (
                             <Stack.Screen name="HomeMaestro" component={HomeMaestro} />
     

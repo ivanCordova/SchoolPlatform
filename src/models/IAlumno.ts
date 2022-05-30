@@ -1,3 +1,7 @@
+import { IGrupo } from "./IGrupo";
+import { IMateria } from "./IMateria";
+import { ITarea } from "./ITarea";
+
 export interface IAlumno{
     id?: number,
     nombre: string,
@@ -5,5 +9,8 @@ export interface IAlumno{
     imagen?: string,
     correo: string,
     id_grupo: number,
-    contrasenia: string
+    contrasenia: string,
+    grupo?: IGrupo,
+    tareas?: ITarea[]
+    materias?: IMateria[]
 }

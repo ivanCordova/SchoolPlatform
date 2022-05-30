@@ -4,5 +4,8 @@ export type RootStackParamList = {
     HomeMaestro: undefined,
     RegistroAlumno: undefined,
     RegistroMaestro: undefined,
-    TipoRegistro: undefined
+    TipoRegistro: undefined,
+    TareasAlumno: undefined,
+    TabNavigation: undefined,
+    MateriasOfertadas: undefined
 };

@@ -125,3 +125,49 @@ export const EstilosTipo = StyleSheet.create({
         width: "80%", marginTop: 30, marginBottom: 15, alignSelf: "center"
     }
 })
+
+
+export const EstilosMateria = StyleSheet.create({
+    container: {
+      backgroundColor: "#03A64A",
+      width: "95%",
+      height: 250,
+      margin: 10,
+      borderRadius: 15,
+      flexDirection: "row"
+    },
+    imagenContainer: {
+      height: "100%",
+      width: "50%",
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    imagen: {
+      height: 230,
+      width: 170,
+      borderRadius: 10,
+    },infoContainer: {
+      height: "100%",
+      width: "50%",
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    botonAdd:{
+      backgroundColor: "white",
+      height: 50,
+      width: 50,
+      alignItems: "center",
+      justifyContent: "center",
+      borderRadius: 30,
+      marginTop: 20
+  }
+  })
+
+
+export const EstilosMateriaHome = StyleSheet.create({
+    container:{
+        height: 100,
+        width: 100,
+        backgroundColor: "red"
+    }
+})
