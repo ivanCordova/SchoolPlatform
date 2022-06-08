@@ -7,5 +7,6 @@ export type RootStackParamList = {
     TipoRegistro: undefined,
     TareasAlumno: undefined,
     TabNavigation: undefined,
-    MateriasOfertadas: undefined
+    MateriasOfertadas: undefined,
+    TareasMateria: undefined
 };

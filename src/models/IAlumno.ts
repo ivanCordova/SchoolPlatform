@@ -12,5 +12,5 @@ export interface IAlumno{
     contrasenia: string,
     grupo?: IGrupo,
     tareas?: ITarea[]
-    materias?: IMateria[]
+    materia?: IMateria[]
 }

@@ -44,7 +44,7 @@ export const EstilosGlobales = StyleSheet.create({
         height: 50,
         borderRadius: 10,
         backgroundColor: '#03A64A',
-        borderColor: '#01401C',
+        borderColor: 'white',
         borderWidth: 2,
         justifyContent: 'center',
         alignItems: 'center',
@@ -97,7 +97,7 @@ export const EstilosRegistro = StyleSheet.create({
 })
 
 export const EstilosTipo = StyleSheet.create({
-    titulo:{
+    titulo: {
         fontSize: 40,
         fontFamily: "Schoolbell-Regular",
         alignSelf: "center",
@@ -105,7 +105,7 @@ export const EstilosTipo = StyleSheet.create({
         color: "white",
         textAlign: "center"
     },
-    textoTipo:{
+    textoTipo: {
         fontSize: 50,
         fontFamily: "Schoolbell-Regular",
         alignSelf: "center",
@@ -129,45 +129,85 @@ export const EstilosTipo = StyleSheet.create({
 
 export const EstilosMateria = StyleSheet.create({
     container: {
-      backgroundColor: "#03A64A",
-      width: "95%",
-      height: 250,
-      margin: 10,
-      borderRadius: 15,
-      flexDirection: "row"
+        backgroundColor: "#03A64A",
+        width: "95%",
+        height: 250,
+        margin: 10,
+        borderRadius: 15,
+        flexDirection: "row"
     },
     imagenContainer: {
-      height: "100%",
-      width: "50%",
-      justifyContent: "center",
-      alignItems: "center"
+        height: "100%",
+        width: "50%",
+        justifyContent: "center",
+        alignItems: "center"
     },
     imagen: {
-      height: 230,
-      width: 170,
-      borderRadius: 10,
-    },infoContainer: {
-      height: "100%",
-      width: "50%",
-      justifyContent: "center",
-      alignItems: "center"
+        height: 230,
+        width: 170,
+        borderRadius: 10,
+    }, infoContainer: {
+        height: "100%",
+        width: "50%",
+        justifyContent: "center",
+        alignItems: "center"
     },
-    botonAdd:{
-      backgroundColor: "white",
-      height: 50,
-      width: 50,
-      alignItems: "center",
-      justifyContent: "center",
-      borderRadius: 30,
-      marginTop: 20
-  }
-  })
-
-
-export const EstilosMateriaHome = StyleSheet.create({
-    container:{
-        height: 100,
-        width: 100,
-        backgroundColor: "red"
+    botonAdd: {
+        backgroundColor: "white",
+        height: 50,
+        width: 50,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: 30,
+        marginTop: 20
     }
 })
+
+export const EstilosMateriaHome = StyleSheet.create({
+    container: {
+        flexWrap: "wrap",
+        flexDirection: "column",
+        width: "95%",
+        height: 300,
+        backgroundColor: "#03A64A",
+        margin: 5,
+        borderRadius: 8,
+        alignSelf: "center"
+    },
+    containerImagen:{
+        flex: 3,
+        width: "100%",
+        height: "100%"
+    },
+    containerInfo:{
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+        height: "100%"
+    },
+    containerBook: {
+        flex: 1,
+        alignItems: "center"
+    },
+    imagen:{
+        width: "100%",
+        height: "100%",
+        borderTopLeftRadius: 8,
+        borderTopRightRadius: 8,
+    }
+})
+
+export const EstilosNavBar = StyleSheet.create({
+    container:{
+        width: "100%",
+        height: 70,
+        backgroundColor: "#03A64A",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderRadius: 15
+    }
+})
+

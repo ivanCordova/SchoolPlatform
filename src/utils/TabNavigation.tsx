@@ -32,7 +32,7 @@ const TabNavigation = () => {
       tabBarActiveTintColor: 'green'
     })}>
       <Tab.Screen name='TareasAlumno' component={TareasAlumno}></Tab.Screen>
-      <Tab.Screen name='HomeAlumno' component={HomeAlumno}></Tab.Screen>
+      <Tab.Screen name='HomeAlumno' component={HomeAlumno} options={{unmountOnBlur: true}}></Tab.Screen>
       <Tab.Screen name='MateriasOfertadas' component={OfertadasAlumno} options={{unmountOnBlur: true}}></Tab.Screen>
     </Tab.Navigator>
   )

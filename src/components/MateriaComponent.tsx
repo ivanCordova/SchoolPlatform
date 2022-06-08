@@ -29,7 +29,7 @@ const MateriaComponent = (materia: IMateria) => {
   return (
     <View style={EstilosMateria.container}>
       <View style={EstilosMateria.imagenContainer}>
-        <Image style={EstilosMateria.imagen} source={{ uri: `${_url}imagenes/materias.jpg` }} />
+        <Image style={EstilosMateria.imagen} source={{ uri: `${_url}imagenes/${materia.imagen}` }} />
       </View>
       <View style={EstilosMateria.infoContainer}>
         <Text style={[EstilosGlobales.textoDescrip, { marginVertical: 20 }]}>{materia.nombre}</Text>

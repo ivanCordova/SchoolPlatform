@@ -7,7 +7,10 @@ import axios from 'axios'
 import { _url } from '../../global/variables'
 import { contexto } from '../../utils/AppContext'
 import { IMateria } from '../../models/IMateria'
-import MateriaComponentCopy from '../../components/MateriaComponent copy'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+
+
 
 const OfertadasAlumno = () => {
   const context = useContext(contexto)
@@ -29,10 +32,22 @@ const OfertadasAlumno = () => {
 
   return (
     <View style={EstilosGlobales.fondo}>
-      <FlatList data={materias} renderItem={({item,index}) => (
-          <MateriaComponent key={index} {... item}></MateriaComponent>
-      )}>
-      </FlatList>
+      {materias.length != 0 ? (
+        <Fragment>
+          <FlatList data={materias} renderItem={({ item, index }) => (
+            <MateriaComponent key={index} {...item}></MateriaComponent>
+          )}>
+          </FlatList>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <View style={{alignItems: "center", height: "100%", width: "100%", justifyContent: "center"}}>
+            <Icon style={{ marginRight: 10 }} name="hourglass-end" size={150} color="white" />
+            <Text style={[EstilosGlobales.textoDescrip,{fontSize: 80}]}>Sin materias</Text>
+          </View>
+        </Fragment>
+      )}
+
     </View>
   )
 }

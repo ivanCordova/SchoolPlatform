@@ -16,8 +16,10 @@ import RegistroMaestro from '../screens/Maestro/RegistroMaestro';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TareasAlumno from '../screens/Alumno/TareasAlumno';
 import TabNavigation from './TabNavigation';
+import TareasMateria from '../screens/Alumno/TareasMateria';
 
 const Tab = createBottomTabNavigator();
+
 
 const Navigation = () => {
     const Stack = createStackNavigator<RootStackParamList>();
@@ -39,7 +41,7 @@ const Navigation = () => {
         getData()
     }, [])
 
-    
+
 
     return (
         <NavigationContainer>
@@ -80,14 +82,18 @@ const Navigation = () => {
                     // User is signed in
                     (
                         context.user.rol === "alumno" ? (
-                            <Stack.Screen 
-                            options={{
-                                headerShown: false
-                            }}
-                            name='TabNavigation' component={TabNavigation}></Stack.Screen>
+                            <Fragment>
+                                <Stack.Screen
+                                    options={{
+                                        headerShown: false
+                                    }}
+                                    name='TabNavigation' component={TabNavigation}></Stack.Screen>
+                                <Stack.Screen name='TareasMateria' component={TareasMateria}></Stack.Screen>
+                            </Fragment>
+
                         ) : (
                             <Stack.Screen name="HomeMaestro" component={HomeMaestro} />
-    
+
                         )
                     )
                 )}
